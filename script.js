@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fonction pour supprimer une tâche
         function supprimerTache(title, searchText) {
             let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-            tasks = tasks.filter(task => task.title !== title); // Supprime la tâche par son titre
+            tasks = tasks.filter(task => task.title !== title);
             localStorage.setItem("tasks", JSON.stringify(tasks));
         
             // Réappliquer le filtre après suppression

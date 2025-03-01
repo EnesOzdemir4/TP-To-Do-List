@@ -27,8 +27,8 @@
         <div id="register-section" style="display: none;">
             <h2>Créer un compte</h2>
             <form id="register-form">
-                <input type="text" id="register-name" placeholder="Nom" required>
-                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="text" maxlength="20" id="register-name" placeholder="Nom" required>
+                <input type="email" maxlength="254" id="register-email" placeholder="Email" required>
                 <input type="password" id="register-password" placeholder="Mot de passe" required>
                 <button type="submit" id="register-btn">S'inscrire</button>
             </form>
@@ -64,8 +64,8 @@
             <div class="popup-content">
                 <h3>Ajouter une tâche</h3>
                 <form id="task-form">
-                    <input type="text" id="task-title" placeholder="Titre" required>
-                    <textarea id="task-comment" placeholder="Commentaire"></textarea>
+                    <input type="text" maxlength="30" id="task-title" placeholder="Titre" required>
+                    <textarea id="task-comment" maxlength="128" placeholder="Commentaire"></textarea>
                     <select id="task-status" required>
                         <option value="">Statut</option>
                         <option value="A faire">A faire</option>

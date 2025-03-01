@@ -304,6 +304,8 @@ div p:nth-of-type(2) {
     font-size: 1rem;
 }
 
+
+
 /* Input Deadline */
 #task-deadline {
     padding: 0.8rem;
@@ -411,6 +413,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-color: rgba(255, 255, 255, 0.248);
     text-align: left;
     position: relative; 
+    padding-right: 8rem;
 }
 
 /* Style des boutons de validation  */
@@ -455,35 +458,46 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .task p {
-    word-wrap: break-word; 
-    white-space: normal; 
+    word-wrap: break-word;
     overflow-wrap: break-word; 
+    white-space: pre-wrap; 
     max-width: 100%; 
+    overflow: hidden;
 }
 
 /* Scrollbar personnalisée pour WebKit  */
+#task-container {
+    scrollbar-gutter: stable both-edges;
+}
+
 #task-container::-webkit-scrollbar {
-    width: 0.7rem; 
-}
-
-#task-container::-webkit-scrollbar-thumb {
-    background-color: #717171; 
-    border-radius: 2rem;
-}
-
-#task-container::-webkit-scrollbar-thumb:hover {
-    background-color: #8f8f8f; 
+    width: 6px; 
 }
 
 #task-container::-webkit-scrollbar-track {
-    background: #434343; 
+    background: transparent;
+    margin: 30px;
+}
+
+#task-container::-webkit-scrollbar-thumb {
+    background-color: #717171;
     border-radius: 4px;
+    border: 0px solid rgb(21, 21, 21); 
+}
+
+#task-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(208, 208, 208, 0.964); 
 }
 
 /* Styles pour les tâches complétées */
 .task h4 {
+    font-size: 1.2rem;
     color: whitesmoke;
     font-weight: bold;
+}
+
+p:has(.status-text) strong {
+    color: rgb(255, 255, 255);
 }
 
 /* Styles pour la deadline */

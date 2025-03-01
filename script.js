@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
             taskElement.innerHTML = `
                 <h4>${task.title}</h4> 
                 <p>${task.comment}</p>
-                <p><strong>Status :</strong> ${task.status}</p>
+                <p><strong>Statut :</strong> <span class="status-text">${task.status}</span></p>
                 <p><strong>Deadline :</strong> ${task.deadline}</p>
                 <div class="task-footer">
                     <div class="buttons">

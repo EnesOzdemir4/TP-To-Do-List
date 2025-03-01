@@ -1,0 +1,506 @@
+
+/* Variables globales */
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --text-color: #929292;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    
+}
+
+body {
+    min-height: 100vh; 
+    margin: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    background: linear-gradient(132deg, rgb(16,16,16,16) 5%, rgb(12, 12, 12) 20%, rgb(16, 16, 16) 50%, rgb(23, 23, 23) 80%);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 700px;
+    min-height: 500px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: rgb(21, 21, 21);
+    border-radius: 2rem;
+    border: 0.5px solid rgba(255, 255, 255, 0.248);
+    box-shadow: var(--shadow);
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+}
+
+/* Styles des formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* styles des boutons */
+button {
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 3.2rem;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(23, 201, 100, .16);
+    color: #17c964;
+    border: 1px solid #17c964;
+    border-radius: 5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .125);
+}
+
+button:hover {
+    transform: scale(1.05);
+  }
+#login-form button {
+    display: block;
+    margin: 10px auto;
+}
+#register-form button {
+    display: block;
+    margin: 10px auto;
+}
+/* Styles des sections */
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Liens */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div p:nth-of-type(2) {
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+        min-height: 400px;
+    }
+
+    input, textarea, button {
+        padding: 0.6rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Messages d'erreur et de succès */
+.error {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.success {
+    color: var(--success-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Masquer le container après connexion */
+.container {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Styles pour la page de la To-Do List */
+#todo-section {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background: linear-gradient(132deg, rgb(16,16,16,16) 5%, rgb(12, 12, 12) 20%, rgb(16, 16, 16) 50%, rgb(23, 23, 23) 80%);
+    border: none; 
+    box-shadow: none;
+}
+
+/* Centrage du titre "Bienvenue" */
+#todo-section h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem; 
+    color: var(--primary-color);
+}
+
+/* Centrage et couleur plus grise pour "Ma To-Do List" */
+#todo-section h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #b0b0b0; 
+    margin-bottom: 1rem;
+}
+
+/* Bouton "Se déconnecter" en haut à droite */
+#logout {
+    position: absolute;
+    height: 2.5rem;
+    top: 0px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 13px;
+    background-color: rgba(255, 69, 58, 0.16);
+    color: #ff453a;
+    border: 1px solid #ff453a;
+}
+
+/* Container pour les tâches */
+#task-container {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 700px; 
+    margin: 2rem auto;
+    min-height: 560px;  
+    padding: 1.5rem;
+    background-color: rgb(21, 21, 21);
+    border-radius: 2rem;
+    border: 0.5px solid rgba(255, 255, 255, 0.248);
+    box-shadow: var(--shadow);
+    margin-top: 2rem;  
+    transition: opacity 0.3s ease-in-out;
+    max-height: 300px; 
+    overflow-y: auto;
+}
+
+#task-container h3 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Style de la pop-up */
+.task-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Contenu de la pop-up */
+.popup-content {
+    background-color: rgb(21, 21, 21);
+    border: 0.5px solid rgba(255, 255, 255, 0.248);
+    padding: 20px 40px 20px 40px;
+    border-radius: 20px;
+    width: 500px;
+    text-align: center;
+    position: relative; 
+}
+
+/* Animation de la pop-up */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1.5;
+    }
+}
+
+/* Input Titre */
+#task-title {
+    padding: 0.8rem;
+    color: white;
+    background-color: #262626;
+    border: 1px solid #686868;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+/* Textarea Commentaire */
+#task-comment {
+    padding: 0.8rem;
+    color: white;
+    background-color: #262626;
+    border: 1px solid #686868;
+    border-radius: 1rem;
+    font-size: 1rem;
+    min-height: 100px;
+    resize: none;
+}
+
+/* Select Statut */
+#task-status {
+    padding: 0.8rem;
+    color: #686868;
+    background-color: #262626;
+    border: 1px solid #686868;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+
+
+/* Input Deadline */
+#task-deadline {
+    padding: 0.8rem;
+    color-scheme: dark;
+    color: #686868;
+    background-color: #262626;
+    border: 1px solid #686868;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+/* Logo du calendrier au couleur du thème */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(45%) sepia(0%) saturate(0%) hue-rotate(0deg);
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* style bouton close */
+#close-popup {
+    display: block;
+    margin: 1rem auto; 
+    padding: 0.7rem 1.2rem;
+    background-color: rgba(255, 69, 58, 0.16);
+    color: #ff453a;
+    border: 1px solid #ff453a;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 30%;  
+    text-align: center; 
+}
+
+#close-popup:hover {
+    background-color: rgba(255, 69, 58, 0.2);
+}
+
+/* Bouton "Ajouter une tâche" */
+#add-task {
+    display: block;
+    margin: 1rem auto;  
+    padding: 0.7rem 1.2rem;
+    background-color: rgba(23, 201, 100, 0.16);
+    color: #17c964;
+    border: 1px solid #17c964;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 30%;  
+    text-align: center; 
+}
+
+
+#add-task,
+#close-popup {
+    margin-bottom: -10px; 
+}
+
+/* Conteneur pour le bouton "Ajouter une tâche" centré */
+#show-task-form-container {
+    display: inline-block; 
+    text-align: center; 
+}
+
+/* Bouton "Ajouter une tâche" */
+#show-task-form {
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.248);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 1rem;
+    cursor: pointer;
+    height: 40px;
+}
+
+/* Champ de recherche aligné à droite du bouton */
+#search-task {
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    background-color: #1b1b1b;
+    color: white;
+    font-size: 1rem;
+    width: 200px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-left: 10px; 
+    vertical-align: middle; 
+}
+
+/* Icone task */
+#show-task-form .icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+}
+
+/* Style des tâches */
+.task {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 1rem;
+    background-color: linear-gradient(132deg, rgb(16, 16, 16, 16) 5%, rgb(12, 12, 12) 20%, rgb(16, 16, 16) 50%, rgb(23, 23, 23) 80%);
+    border-color: rgba(255, 255, 255, 0.248);
+    text-align: left;
+    position: relative; 
+    padding-right: 8rem;
+}
+
+/* Style des boutons de validation  */
+.task .validate-task {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    background-color: #17c964;
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid #17c964;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 50%; 
+    padding: 0;
+}
+
+/* Style des boutons de suppression */
+.task .delete-task {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff453a;
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid #ff453a;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 50%; 
+    padding: 0;
+    
+}
+
+.task p {
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    white-space: pre-wrap; 
+    max-width: 100%; 
+    overflow: hidden;
+}
+
+/* Scrollbar personnalisée pour WebKit  */
+#task-container {
+    scrollbar-gutter: stable both-edges;
+}
+
+#task-container::-webkit-scrollbar {
+    width: 6px; 
+}
+
+#task-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 30px;
+}
+
+#task-container::-webkit-scrollbar-thumb {
+    background-color: #717171;
+    border-radius: 4px;
+    border: 0px solid rgb(21, 21, 21); 
+}
+
+#task-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(208, 208, 208, 0.964); 
+}
+
+/* Styles pour les tâches complétées */
+.task h4 {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+p:has(.status-text) strong {
+    color: rgb(255, 255, 255);
+}
+
+/* Styles pour la deadline */
+.task p:last-of-type {
+    color: rgb(191, 57, 57); 
+}

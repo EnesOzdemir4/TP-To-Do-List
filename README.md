@@ -1,3 +1,2 @@
-# TP-To-Do-List
+# TP-To-Do-List Enes Ozdemir
 TP To-Do list
-Enes Ozdemir

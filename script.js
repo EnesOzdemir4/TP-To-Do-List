@@ -195,17 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Fonction pour supprimer une tâche
-        function supprimerTache(index) {
-            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-            tasks.splice(index, 1);
+        function supprimerTache(title, searchText) {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks = tasks.filter(task => task.title !== title); // Supprime la tâche par son titre
             localStorage.setItem("tasks", JSON.stringify(tasks));
-            afficherTaches();
-
+        
+            // Réappliquer le filtre après suppression
+            afficherTaches(searchText);
         }
+
         for (const button of document.querySelectorAll(".delete-task")) {
             button.addEventListener("click", (e) => {
-                const index = e.target.getAttribute("data-index");
-                supprimerTache(index);
+                const title = e.target.closest(".task").querySelector("h4").textContent;
+                supprimerTache(title, searchText);
             });
         }
     }
